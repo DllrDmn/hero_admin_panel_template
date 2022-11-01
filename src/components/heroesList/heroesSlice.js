@@ -9,11 +9,6 @@ const initialState = heroesAdapter.getInitialState({
 });
 
 
-// const initialState = {
-//     heroes: [],
-//     heroesLoadingStatus: 'idle'
-// }
-
 
 
 export const fetchHeroes = createAsyncThunk(
@@ -28,16 +23,6 @@ const heroesSlice = createSlice({
     name: 'heroes',
     initialState,
     reducers: {
-        // heroesFetching:state => {     ///action creators
-        //     state.heroesLoadingStatus = 'loading';     ///действие по изменению стейта       + работает имер.js который следит за иммутабельностью
-        // },
-        // heroesFetched:(state, action) => {
-        //             state.heroes = action.payload;
-        //             state.heroesLoadingStatus = 'idle';
-        //         },
-        // heroesFetchingError:state => {
-        //             state.heroesLoadingStatus = 'error';
-        //         },
         heroCreated:(state, action) => {
                 heroesAdapter.addOne(state, action.payload)////createEntityAdapter
                     // state.heroes.push(action.payload);
@@ -62,8 +47,6 @@ const heroesSlice = createSlice({
     }
 });
 
-// export const {heroesFetching, heroesFetched, heroesFetchingError, heroCreated, heroDeleted} = heroesSlice.actions;
-// export default heroesSlice.reducer;
 
 const {actions, reducer} = heroesSlice;
 export default reducer;
